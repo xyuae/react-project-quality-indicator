@@ -1,0 +1,9 @@
+.DS_Store
+node_modules
+*.sock
+*bundle.js
+.sass-cache
+sass
+config.rb
+*.log
+.git
