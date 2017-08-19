@@ -10,7 +10,7 @@ Functional requirement
 5.	Upload and download interface for data in Excel format
 
 ## Design
-The website is about Overview/Add/List view
+The website is about Overview/Add/List view in a single page app.
 
 ## Methodology
 Build the project using ReactJS on the front-end for REST API system.
@@ -21,7 +21,7 @@ git clone https://github.com/xyuae/react-project-quality-indicator.git
 cd into the project directory
 npm install
 npm start
-visit http://localhost:3001/ on web-broser
+visit http://localhost:3001/ on web-browser
 ```
 
 ## Plan and Milestone

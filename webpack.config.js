@@ -1,40 +1,29 @@
-var webpack = require("webpack");
+const webpack = require('webpack');
+const fs      = require('fs');
+const path    = require('path'),
+	join    = path.join,
+	resolve = path.resolve;
 
-module.exports = {
-	entry: "./src/index.js",
-	output: {
-		path: "dist/assets",
-		filename: "bundle.js",
-		publicPath: "assets"
-	},
-	devServer: {
-		inline: true,
-		contentBase: './dist',
-		port: 3001
-	},
-	module: {
-		loaders: [
-			{
-				test: /\.js$/,
-				exclude: /(node_modules)/,
-				loader: ["babel-loader"],
-				query: {
-					presets: ["latest", "stage-0", "react"]
-				}
-			},
-			{
-				test: /\.json$/,
-				exclude: /(node_modules)/,
-				loader: "json-loader"
-			},
-			{
-				test: /\.css$/,
-				loader: 'style-loader!css-loader!autoprefixer-loader'
-			},
-			{
-				test: /\.scss$/,
-				loader: 'style-loader!css-loader!autoprefixer-loader!sass-loader'
-			}
-		]
-	}
-}
+const getConfig = require('hjs-webpack');
+
+const root    = resolve(__dirname);
+const src     = join(root, 'src');
+const modules = join(root, 'node_modules');
+const dest    = join(root, 'dist');
+
+
+const NODE_ENV = process.env.NODE_ENV;
+const isDev = NODE_ENV === 'development';
+// alternatively, we can use process.argv[1]
+// const isDev = (process.argv[1] || '')
+//                .indexOf('hjs-dev-server') !== -1;
+
+// ...
+var config = getConfig({
+	isDev: isDev,
+	in: join(src, 'app.js'),
+	out: dest,
+	clearBeforeBuild: true
+});
+
+module.exports = config;
