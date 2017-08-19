@@ -1,10 +1,10 @@
-import Terrain from 'react-icons/lib/md/terrain'
-import SnowFlake from 'react-icons/lib/ti/weather-snow'
-import Calendar from 'react-icons/lib/fa/calendar'
-import { PropTypes } from 'react'
+import Terrain from 'react-icons/lib/md/terrain';
+import SnowFlake from 'react-icons/lib/ti/weather-snow';
+import Calendar from 'react-icons/lib/fa/calendar';
+import { PropTypes } from 'prop-types';
 
-export const SkiDayRow = ({resort, date, 
-							powder, backcountry}) => (
+export const SkiDayRow = ({resort, date,
+	powder, backcountry}) => (
 	<tr>
 		<td>
 			{date.getMonth()+1}/{date.getDate()}/
@@ -19,15 +19,13 @@ export const SkiDayRow = ({resort, date,
 		<td>
 			{(backcountry) ? <Terrain /> : null}
 		</td>
-	</tr>						
+	</tr>
 
-)
+);
 
 SkiDayRow.propTypes = {
 	resort: PropTypes.string.isRequired,
 	date: PropTypes.instanceOf(Date).isRequired,
 	powder: PropTypes.bool,
 	backcountry: PropTypes.bool
-}
-
-
+};
