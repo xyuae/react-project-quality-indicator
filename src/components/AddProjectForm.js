@@ -8,25 +8,30 @@ export const AddProjectForm = ({ projectName,
 							 date,
 							 safety_require,
 							 cyber_require,
-						  	 technical_mastery_status}) => {
-
+						  	 technical_mastery_status,
+						 	 onNewProject}) => {
+	// console.log(typeof onNewProject); // print typeof onNewProject
 	let _projectName, _date, _safety_require, _cyber_require, _technical_mastery_status;	// define local reference
 	const submit = (e) =>  {	// function for sumbit data
 		e.preventDefault();
-		/*
 		onNewProject({
 			date: _date.value,
 			projectName: _projectName.value,
-			safety_require: _safety_require.value,
-			cyber_require: _cyber_require.value,
+			safety_require: _safety_require.checked,
+			cyber_require: _cyber_require.checked,
 			technical_mastery_status: _technical_mastery_status.value
 		});
-		*/
+		/*
 		console.log('project', _projectName.value);
 		console.log('date', _date.value);
 		console.log('safety_require', _safety_require.checked);
 		console.log('cyber_require', _cyber_require.checked);
 		console.log('technical_mastery_status', _technical_mastery_status.value);
+		*/
+		_projectName.value = '';
+		_date.value = '';
+		_safety_require.checked = false;
+		_cyber_require.checked = false;
 	};
 
 	return (
@@ -107,5 +112,6 @@ AddProjectForm.propTypes = {	// validate properties type
 	date: PropTypes.string.isRequired,
 	safety_require: PropTypes.bool.isRequired,
 	cyber_require: PropTypes.bool.isRequired,
-	technical_mastery_status: PropTypes.number.isRequired
+	technical_mastery_status: PropTypes.number.isRequired,
+	onNewProject: PropTypes.func,
 };
