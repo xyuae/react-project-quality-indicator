@@ -42,15 +42,6 @@ export class App extends Component {
 	   ).length;
 	}
 
-	addDay(newDay) {
-		this.setState({
-			allSkiDays: [
-				...this.state.allSkiDays,
-				newDay
-			]
-		});
-	}
-
 	addProject(newProject) {    // add a project to current state
 		this.setState({
 			allProjects: [
