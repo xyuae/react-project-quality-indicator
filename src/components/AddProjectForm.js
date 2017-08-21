@@ -7,15 +7,26 @@ UI design for project information input form
 export const AddProjectForm = ({ projectName,
 							 date,
 							 safety_require,
-							 cyber_require }) => {
+							 cyber_require,
+						  	 technical_mastery_status}) => {
 
-	let _projectName, _date, _safety_require, _cyber_require;	// define local reference
+	let _projectName, _date, _safety_require, _cyber_require, _technical_mastery_status;	// define local reference
 	const submit = (e) =>  {	// function for sumbit data
 		e.preventDefault();
+		/*
+		onNewProject({
+			date: _date.value,
+			projectName: _projectName.value,
+			safety_require: _safety_require.value,
+			cyber_require: _cyber_require.value,
+			technical_mastery_status: _technical_mastery_status.value
+		});
+		*/
 		console.log('project', _projectName.value);
 		console.log('date', _date.value);
 		console.log('safety_require', _safety_require.checked);
 		console.log('cyber_require', _cyber_require.checked);
+		console.log('technical_mastery_status', _technical_mastery_status.value);
 	};
 
 	return (
@@ -25,6 +36,7 @@ export const AddProjectForm = ({ projectName,
 				   type="text"
 				   required
 				   defaultValue={projectName}
+				   autoFocus= "true"
 				   ref={input => _projectName = input}/>
 
 			<label htmlFor="date">Date</label>
@@ -53,6 +65,20 @@ export const AddProjectForm = ({ projectName,
 					Do you have Cyber Security Requirement in your project?
 				</label>
 			</div>
+
+			<div>
+				<label htmlFor="technical_mastery_status">
+					Technical Mastery Status:
+				</label>
+				<input id="technical_mastery_status"
+					   type="number"
+					   min = "0"
+					   max = "100"
+					   required
+					   defaultValue = {technical_mastery_status}
+					   ref={input => _technical_mastery_status = input}/>
+
+			</div>
 			<button>Add Project</button>
 		</form>
 	);
@@ -71,7 +97,8 @@ AddProjectForm.defaultProps = {	// define default properties of the form
 	projectName: 'Project',
 	date: getCurrentDate(),
 	safety_require: false,
-	cyber_require: false
+	cyber_require: false,
+	technical_mastery_status: 0
 };
 
 
@@ -79,5 +106,6 @@ AddProjectForm.propTypes = {	// validate properties type
 	projectName: PropTypes.string.isRequired,
 	date: PropTypes.string.isRequired,
 	safety_require: PropTypes.bool.isRequired,
-	cyber_require: PropTypes.bool.isRequired
+	cyber_require: PropTypes.bool.isRequired,
+	technical_mastery_status: PropTypes.number.isRequired
 };

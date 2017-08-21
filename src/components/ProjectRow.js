@@ -14,8 +14,7 @@ export const ProjectRow = ({projectName, date,
 	safety_require, cyber_require}) => (
 	<tr>
 		<td>
-			{date.getMonth()+1}/{date.getDate()}/
-			{date.getFullYear()}
+			{date}
 		</td>
 		<td>
 			{projectName}
@@ -32,7 +31,7 @@ export const ProjectRow = ({projectName, date,
 
 ProjectRow.propTypes = {	// validate props type
 	projectName: PropTypes.string.isRequired,
-	date: PropTypes.instanceOf(Date).isRequired,
+	date: PropTypes.string.isRequired,
 	safety_require: PropTypes.bool,
 	cyber_require: PropTypes.bool
 };
