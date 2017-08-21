@@ -17,25 +17,27 @@ export const ProjectList = ({projects, filter}) => {
 		<div className="project-list">
 			<table>
             	<thead>
+					<tr>
+						<td colSpan={4}>
+							<Link to="/list-projects">
+								All Projects
+							</Link>
+							<Link to="/list-projects/safety_require">
+								Safety Requirement
+							</Link>
+							<Link to="/list-projects/cyber_require">
+								Cyber Requirement
+							</Link>
+						</td>
+					</tr>
             		<tr>
             			<th>Date</th>
             			<th>Project Name</th>
             			<th>Saftey Requirement</th>
             			<th>Cyber Requirement</th>
+						<th>Techical Mastery Status</th>
             		</tr>
-            		<tr>
-            			<td colSpan={4}>
-            				<Link to="/list-projects">
-            					All Projects
-            				</Link>
-							<Link to="/list-projects/safety_require">
-								Safety Requirement
-							</Link>
-            				<Link to="/list-projects/cyber_require">
-            				    Cyber Requirement
-            				</Link>
-            			</td>
-            		</tr>
+
             	</thead>
             	<tbody>
             		{filteredProjects.map((project, i) =>

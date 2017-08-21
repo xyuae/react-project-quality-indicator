@@ -11,52 +11,60 @@ export class App extends Component {
 		   allProjects: [
 			   {
 				   projectName: 'Big data',
-				   date: new Date('1/2/2016'),
+				   date: '2016-2-16',
 				   cyber_require: true,
-				   safety_require: false
+				   safety_require: false,
+				   technical_mastery_status: 32,
 			   },
 			   {
-				   projectName: 'Hot Dog',
-				   date: new Date('3/28/2016'),
-				   cyber_require: true,
-				   safety_require: true
+				    projectName: 'Hot Dog',
+				    date: '2016-2-16',
+				    cyber_require: true,
+				    safety_require: true,
+					technical_mastery_status: 32,
 			   },
 			   {
-				   projectName: 'Embedded System',
-				   date: new Date('4/2/2016'),
-				   cyber_require: false,
-				   safety_require: false
+				    projectName: 'Embedded System',
+				    date: '2016-2-16',
+				    cyber_require: false,
+				    safety_require: false,
+					technical_mastery_status: 32,
 			   }
 		   ]
 	   };
+	   //this.addDay = this.addDay.bind(this);
+	   this.addProject = this.addProject.bind(this);   // two-way function binding
 	}
-	countProjects(filter) {
+	countProjects(filter) {    // return the percentage of projects by filter
 	   const { allProjects } = this.state;
 	   return allProjects.filter(
 		   (project) => (filter) ? project[filter] : project
 	   ).length;
 	}
-	/*
-	countDays(filter) {
-	   const { allSkiDays } = this.state;
-	   return allSkiDays.filter(
-		   (day) => (filter) ? day[filter] : day).length;
+
+	addProject(newProject) {    // add a project to current state
+		this.setState({
+			allProjects: [
+				...this.state.allProjects,
+				newProject
+			]
+		});
 	}
-    */
+
 	render() {
 	   return (
 		   <div className="app">
 			   <Menu />
-			   {(this.props.location.pathname === "/") ?
+			   {(this.props.location.pathname === '/') ?
 				 <SkiDayCount total={this.countProjects()}
 								powder={this.countProjects(
-									   "cyber_require"
+									   'cyber_require'
 								   )}
 								backcountry={this.countProjects(
-									   "safety_require"
+									   'safety_require'
 								   )}/> :
 				(this.props.location.pathname === "/add-project") ?
-				   <AddProjectForm /> :
+				   <AddProjectForm onNewProject = {this.addProject}/> :
 				   <ProjectList projects={this.state.allProjects}
 							   filter={this.props.params.filter}/>
 			   }
