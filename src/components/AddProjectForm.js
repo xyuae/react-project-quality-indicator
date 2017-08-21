@@ -113,5 +113,5 @@ AddProjectForm.propTypes = {	// validate properties type
 	safety_require: PropTypes.bool.isRequired,
 	cyber_require: PropTypes.bool.isRequired,
 	technical_mastery_status: PropTypes.number.isRequired,
-	onNewProject: PropTypes.func,
+	onNewProject: PropTypes.func.isRequired,
 };

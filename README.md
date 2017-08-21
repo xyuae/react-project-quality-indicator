@@ -27,7 +27,8 @@ visit http://localhost:3001/ on web-browser
 ## Plan and Milestone
 Milestone: Website to create project and store project meta data
 - 8/11 – 8/20: Complete router implementation and ui design, finish basic structure of the front-end application
-- 8/20- 8/27: Improve form content and function 
+- 8/20- 8/27: Improve form content and function
+ 	- form two way function binding
 
 
 
