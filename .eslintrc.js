@@ -19,7 +19,7 @@ module.exports = {
     "indent": ["error", "tab"],
     "quotes": ["error","single"],
     "semi": ["error","always"],
-    "no-mixed-spaces-and-tabs": [2, true],
+    "no-mixed-spaces-and-tabs": [0, false],
     "no-console": ["warn", { "allow": ["info", "error"] }]
   }
 };

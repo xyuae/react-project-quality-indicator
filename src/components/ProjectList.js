@@ -1,70 +1,67 @@
-import Terrain from 'react-icons/lib/md/terrain';
-import SnowFlake from 'react-icons/lib/ti/weather-snow';
-import Calendar from 'react-icons/lib/fa/calendar';
-import { SkiDayRow } from './SkiDayRow';
+import { ProjectRow } from './ProjectRow';
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router';
 
-export const ProjectList = () => {
-    const filteredProjects = (!filter || !filter.match(/safety_require | cyber_require/)) ?
-		projects: filter(project => project[filter]
-		);
-}
+/*
+Create a table of Project,
+presenting the date: date, name: string,
+safety requirement: bool, and cyber requirement: bool
+*/
 
-export const DaysList = ({days, filter}) => {
-  const filteredDays = (!filter ||
-  		!filter.match(/powder|backcountry/))?
-  		days:
-  		days.filter(day => day[filter])
+export const ProjectList = ({projects, filter}) => {
+	const filteredProjects = (!filter ||
+		!filter.match(/safety_require|cyber_require/)) ?
+		projects: projects.filter(project => project[filter]
+		);		// return an array of filtered Projects data
+	return (	// render a table of projects
+		<div className="project-list">
+			<table>
+            	<thead>
+            		<tr>
+            			<th>Date</th>
+            			<th>Project Name</th>
+            			<th>Saftey Requirement</th>
+            			<th>Cyber Requirement</th>
+            		</tr>
+            		<tr>
+            			<td colSpan={4}>
+            				<Link to="/list-projects">
+            					All Projects
+            				</Link>
+							<Link to="/list-projects/safety_require">
+								Safety Requirement
+							</Link>
+            				<Link to="/list-projects/cyber_require">
+            				    Cyber Requirement
+            				</Link>
+            			</td>
+            		</tr>
+            	</thead>
+            	<tbody>
+            		{filteredProjects.map((project, i) =>
+            			<ProjectRow key={i}
+            					   {...project}/>
+            			)}
+            	</tbody>
 
-  return (
-  	<div className="ski-day-list">
-	<table>
-		<thead>
-			<tr>
-				<th>Date</th>
-				<th>Resort</th>
-				<th>Powder</th>
-				<th>Backcountry</th>
-			</tr>
-			<tr>
-				<td colSpan={4}>
-					<Link to="/list-days">
-						All Days
-					</Link>
-					<Link to="/list-days/powder">
-						Powder Days
-					</Link>
-					<Link to="/list-days/backcountry">
-						Backcountry Days
-					</Link>
-				</td>
-			</tr>
-		</thead>
-		<tbody>
-			{filteredDays.map((day, i) =>
-				<SkiDayRow key={i}
-						   {...day}/>
-				)}
-		</tbody>
+			</table>
+		</div>
+	);
+};
 
-	</table>
-	</div>
-)
-}
-
-SkiDayList.propTypes = {
-	days: function(props) {
-		if(!Array.isArray(props.days)) {
+ProjectList.propTypes = {	// validate the props type
+	projects: function(props) {
+		if(!Array.isArray(props.projects)) {
 			return new Error(
-				"SkiDayList should be an array"
-				)
-		} else if(!props.days.length) {
+				'ProjectList should be an array'
+			);
+		} else if(!props.projects.length) {
 			return new Error(
-				"SkiDayList must have at least one record"
-				)
+				'ProjectList must have at least one record'
+            );
 		} else {
-			return null
+
 		}
-	}
-}
+	},
+	filter: PropTypes.string,
+};

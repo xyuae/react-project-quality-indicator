@@ -21,15 +21,14 @@ git clone https://github.com/xyuae/react-project-quality-indicator.git
 cd into the project directory
 npm install
 npm start
-visit http://localhost:3001/ on web-broser
+visit http://localhost:3001/ on web-browser
 ```
 
 ## Plan and Milestone
 Milestone: Website to create project and store project meta data
-- 8/11 – 8/25: Expand the functional property of the website  
-- Milestone: Set up backend environment
-	1. Set up ES6, CSS loading environment with Babel transpiling and webpack
-	2.
+- 8/11 – 8/20: Complete router implementation and ui design, finish basic structure of the front-end application
+- 8/20- 8/27: Improve form content and function 
+
 
 
 ## Resource

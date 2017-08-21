@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
 import HomeIcon from 'react-icons/lib/fa/home';
 import AddDayIcon from 'react-icons/lib/fa/calendar-plus-o';
-import ListDaysIcon from 'react-icons/lib/fa/table';
+import ListIcon from 'react-icons/lib/fa/table';
 
 export const Menu = () =>
 	<nav className="menu">
@@ -11,7 +11,7 @@ export const Menu = () =>
 		<Link to="/add-project" activeClassName="selected">
 			<AddDayIcon />
 		</Link>
-		<Link to="/list-days" activeClassName="selected">
-			<ListDaysIcon />
+		<Link to="/list-projects" activeClassName="selected">
+			<ListIcon />
 		</Link>
 	</nav>

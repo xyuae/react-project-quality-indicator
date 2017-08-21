@@ -1,37 +1,13 @@
 import { Component } from 'react';
-import { SkiDayList } from './SkiDayList';
+import { ProjectList } from './ProjectList';
 import { SkiDayCount } from './SkiDayCount';
 import { AddProjectForm } from './AddProjectForm';
 import { Menu } from './Menu';
 
 export class App extends Component {
-   constructor(props) {
+	constructor(props) {
 	   super(props);
 	   this.state = {
-		   allSkiDays: [
-			   {
-				   resort: 'Squaw Valley',
-				   projectName: 'Big data',
-				   date: new Date('1/2/2016'),
-				   powder: true,
-				   backcountry: false
-			   },
-			   {
-				   resort: 'Kirkwood',
-				   projectName: 'Hot Dog',
-				   date: new Date('3/28/2016'),
-				   powder: false,
-				   backcountry: false
-			   },
-			   {
-				   projectName: 'Embedded System',
-				   resort: 'Mt. Tallac',
-				   date: new Date('4/2/2016'),
-				   powder: false,
-				   backcountry: true
-			   }
-		   ]
-		   ,
 		   allProjects: [
 			   {
 				   projectName: 'Big data',
@@ -53,20 +29,21 @@ export class App extends Component {
 			   }
 		   ]
 	   };
-   }
-   countProjects(filter) {
+	}
+	countProjects(filter) {
 	   const { allProjects } = this.state;
 	   return allProjects.filter(
 		   (project) => (filter) ? project[filter] : project
 	   ).length;
-   }
-
-   countDays(filter) {
+	}
+	/*
+	countDays(filter) {
 	   const { allSkiDays } = this.state;
 	   return allSkiDays.filter(
 		   (day) => (filter) ? day[filter] : day).length;
-   }
-   render() {
+	}
+    */
+	render() {
 	   return (
 		   <div className="app">
 			   <Menu />
@@ -80,10 +57,10 @@ export class App extends Component {
 								   )}/> :
 				(this.props.location.pathname === "/add-project") ?
 				   <AddProjectForm /> :
-				   <SkiDayList days={this.state.allSkiDays}
+				   <ProjectList projects={this.state.allProjects}
 							   filter={this.props.params.filter}/>
 			   }
 		   </div>
 	   );
-   }
+	}
 }
