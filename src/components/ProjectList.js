@@ -1,6 +1,7 @@
 import { ProjectRow } from './ProjectRow';
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router';
+import { ProjectChart } from './ProjectChart';
 
 /*
 Create a table of Project,
@@ -47,6 +48,7 @@ export const ProjectList = ({projects, filter}) => {
             	</tbody>
 
 			</table>
+			<ProjectChart />
 		</div>
 	);
 };

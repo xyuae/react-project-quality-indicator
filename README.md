@@ -30,7 +30,7 @@ Milestone: Website to create project and store project meta data
 - 8/20- 8/27: Improve form content and function
  	- form two way function binding
 	- load and update data using api using componentDidMount and callback
-
+    - use highcharts api to present status data
 
 
 
