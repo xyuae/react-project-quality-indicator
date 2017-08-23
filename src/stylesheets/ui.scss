@@ -127,6 +127,8 @@ div.ski-day-count {
 
 }
 
+
+
 div.project-list {
   height: calc(100% - 13em);
   overflow-y: scroll;
@@ -143,6 +145,11 @@ div.project-list {
     font-size: 1.5em;
     text-align: center;
 
+    div.link {
+        cursor: pointer;
+        color: blue;
+    }
+    
     td {
       padding: .2em;
     }

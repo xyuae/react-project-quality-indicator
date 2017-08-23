@@ -9,6 +9,7 @@ A chart showing the change of project satus
 
 export class ProjectChart extends Component {
 	render() {
+		//console.log(this.props.projectName);
 		const options = {
 			chart: {
 				type: 'spline'
@@ -76,9 +77,15 @@ export class ProjectChart extends Component {
 				]
 			},]
 		};
-		return (
-			<Chart options={options}/>
-		);
+		if (this.props.projectName) {
+			return (
+				<Chart options={options}/>
+			);
+		}
+		else {
+			return null;
+		}
+
 	}
 }
 

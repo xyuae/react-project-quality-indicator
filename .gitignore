@@ -7,3 +7,4 @@ sass
 config.rb
 *.log
 .git
+trash
