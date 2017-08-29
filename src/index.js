@@ -11,12 +11,12 @@ window.React = React;
 
 render(
 	<Router history={hashHistory}>
-		<Route path="/" component={App}/>
-		<Route path="list-projects" component={App}>
-			<Route path=":filter" component={App} />
+		<Route path='/' component={App}/>
+		<Route path='list-projects' component={App}>
+			<Route path=':filter' component={App} />
 		</Route>
-		<Route path="add-project" component={App} />
-		<Route path="*" component={Whoops404}/>
+		<Route path='add-project' component={App} />
+		<Route path='*' component={Whoops404}/>
 	</Router>,
 	document.getElementById('react-container')
 );

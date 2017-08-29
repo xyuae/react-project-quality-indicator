@@ -13,7 +13,6 @@ the information present includes projectName, date, safety requirement,
 and cyber requirement
 */
 
-
 export const ProjectRow = ({
 	projectName,
 	date,
@@ -22,16 +21,16 @@ export const ProjectRow = ({
 	technical_mastery_status,
 	onClick,
 }) => {
-	const handleClick = () => {
-		onClick(projectName);
-	};
-	return (
-		<tr>
+  const handleClick = () => {
+    onClick(projectName);
+  };
+  return (
+   <tr>
 			<td>
 				{date}
 			</td>
 			<td>
-				<div className="link ViewHistory" onClick={handleClick}>
+				<div className='link ViewHistory' onClick={handleClick}>
 					{projectName}
 				</div>
 			</td>
@@ -45,15 +44,14 @@ export const ProjectRow = ({
 				{(technical_mastery_status)}
 			</td>
 		</tr>
-	);
+  );
 };
 
-
 ProjectRow.propTypes = {	// validate props type
-	projectName: PropTypes.string.isRequired,
-	date: PropTypes.string.isRequired,
-	safety_require: PropTypes.bool,
-	cyber_require: PropTypes.bool,
-	technical_mastery_status: PropTypes.number,
-	onClick: PropTypes.func,
+  projectName: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  safety_require: PropTypes.bool,
+  cyber_require: PropTypes.bool,
+  technical_mastery_status: PropTypes.number,
+  onClick: PropTypes.func,
 };
