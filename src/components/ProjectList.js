@@ -2,7 +2,7 @@ import { ProjectRow } from './ProjectRow';
 import { PropTypes } from 'prop-types';
 import { Link } from 'react-router';
 import { ProjectChart } from './ProjectChart';
-import React, { Component} from 'react';
+import React, { Component } from 'react';
 
 /*
 Create a table of Project,
@@ -10,7 +10,6 @@ presenting the date: date, name: string,
 safety requirement: bool, and cyber requirement: bool
 */
 
-//export const ProjectList = ({projects, filter}) => {
 export class ProjectList extends Component {
   constructor(props) {
     super(props);
@@ -28,6 +27,7 @@ export class ProjectList extends Component {
 
   onProjectClick =(projectName) => {
     this.setState({projectName: projectName});
+    console.log(projectName);
   };
   render() {
     return (

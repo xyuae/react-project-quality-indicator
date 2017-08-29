@@ -3,8 +3,7 @@
 import Check from 'react-icons/lib/fa/check';
 //import Calendar from 'react-icons/lib/fa/calendar';
 import { PropTypes } from 'prop-types';
-
-// import { Link } from 'react-router';
+import React, { Component } from 'react';
 
 /*
 A row of informaiton in the table ProjectList,
@@ -13,39 +12,33 @@ the information present includes projectName, date, safety requirement,
 and cyber requirement
 */
 
-export const ProjectRow = ({
-	projectName,
-	date,
-	safety_require,
-	cyber_require,
-	technical_mastery_status,
-	onClick,
-}) => {
-  const handleClick = () => {
-    onClick(projectName);
-  };
-  return (
-   <tr>
-			<td>
-				{date}
-			</td>
-			<td>
-				<div className='link ViewHistory' onClick={handleClick}>
-					{projectName}
-				</div>
-			</td>
-			<td>
-				{(safety_require) ? <Check/> : null}
-			</td>
-			<td>
-				{(cyber_require) ? <Check /> : null}
-			</td>
-			<td>
-				{(technical_mastery_status)}
-			</td>
-		</tr>
-  );
-};
+export class ProjectRow extends Component {
+  render() {
+    //console.log('projectName', this.props.projectName);
+    return (
+      <tr>
+				<td>
+					{this.props.date}
+				</td>
+				<td>
+					<div className='link ViewHistory'
+      				 onClick= {()=> this.props.onClick(this.props.projectName)}>
+						{this.props.projectName}
+					</div>
+				</td>
+				<td>
+					{(this.props.safety_require) ? <Check/> : null}
+				</td>
+				<td>
+					{(this.props.cyber_require) ? <Check /> : null}
+				</td>
+				<td>
+					{(this.props.technical_mastery_status)}
+				</td>
+			</tr>
+    );
+  }
+}
 
 ProjectRow.propTypes = {	// validate props type
   projectName: PropTypes.string.isRequired,
