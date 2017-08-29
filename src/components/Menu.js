@@ -4,14 +4,14 @@ import AddDayIcon from 'react-icons/lib/fa/calendar-plus-o';
 import ListIcon from 'react-icons/lib/fa/table';
 
 export const Menu = () =>
-	<nav className="menu">
-		<Link to="/" activeClassName="selected">
+	<nav className='menu'>
+		<Link to='/' activeClassName='selected'>
 			<HomeIcon />
 		</Link>
-		<Link to="/add-project" activeClassName="selected">
+		<Link to='/add-project' activeClassName='selected'>
 			<AddDayIcon />
 		</Link>
-		<Link to="/list-projects" activeClassName="selected">
+		<Link to='/list-projects' activeClassName='selected'>
 			<ListIcon />
 		</Link>
-	</nav>
+	</nav>;

@@ -35,5 +35,5 @@ Milestone: Website to create project and store project meta data
 
 
 ## Resource
-[Cloning a lightweigth yelp website](http://cache.preserve.io/c81nqh7s/)
-[Note on react](./notes/clone_yelp.md)
+- [Cloning a lightweigth yelp website](http://cache.preserve.io/c81nqh7s/)
+- [Note on react](./notes/clone_yelp.md)
