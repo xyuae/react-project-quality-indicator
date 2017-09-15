@@ -3,6 +3,7 @@ import { ProjectList } from './ProjectList';
 import { SkiDayCount } from './SkiDayCount';
 import { AddProjectForm } from './AddProjectForm';
 import { Menu } from './Menu';
+import '../app.css';
 
 export class App extends Component {
   constructor(props) {

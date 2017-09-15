@@ -1,11 +1,11 @@
 @import "globals";
 
 nav.menu {
-  background-color: black;
+  background-color: green;
   position: fixed;
   bottom: 0;
-  left: 0;
-  width: calc(100% - 1em);
+  //margin: auto;
+  width: calc(100%);
   font-size: 4em;
   padding: .5em;
   display: flex;
@@ -149,7 +149,7 @@ div.project-list {
         cursor: pointer;
         color: blue;
     }
-    
+
     td {
       padding: .2em;
     }
@@ -219,6 +219,7 @@ form.add-project-form {
   flex-direction: column;
   justify-content: space-around;
   align-items: stretch;
+  overflow: auto;
   height: calc(100% - 12em);
 
   >label,
